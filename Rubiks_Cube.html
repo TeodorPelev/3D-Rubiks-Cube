@@ -1,0 +1,990 @@
+<html lang="en">
+	<head>
+		<title>Rubik's Cube</title>
+		<link rel="icon" href="textures/cube_icon.png">
+		<style>
+			body 
+			{
+				font-family: Monospace;
+				background-color: #f0f0f0;
+				margin: 0px;
+				overflow: hidden;
+			}
+			div#rotateLButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;
+			}
+			div#rotateUButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;								
+			}
+			div#rotateRButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;				
+			}
+			div#rotateLprButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin-top: 50px;
+				margin-left: -485px;
+				float: left;				
+			}
+			div#rotateDButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;				
+			}
+			div#rotateFButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;				
+			}
+			div#rotateBButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;				
+			}
+			div#rotateTButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin: 10px;
+				float: left;				
+			}
+			div#rotateRprButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin-top: 50px;
+				margin-left: -485px;
+				float: left;				
+			}
+			div#rotateUprButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin-top: 50px;
+				margin-left: -386px;
+				float: left;				
+			}
+			div#rotateDprButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin-top: 50px;
+				margin-left: -287px;
+				float: left;				
+			}
+			div#rotateFprButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin-top: 50px;
+				margin-left: -188px;
+				float: left;				
+			}
+			div#rotateBprButtonId
+			{
+				background-color: #FFFFFF;
+				width: 75px;
+				height: 20px;
+				border: 2px solid #500606;
+				margin-top: 50px;
+				margin-left: -89px;
+				float: left;				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="rotateLButtonId">rotateL</div>
+		<div id="rotateRButtonId">rotateR</div>
+		<div id="rotateUButtonId">rotateU</div>
+		<div id="rotateDButtonId">rotateD</div>
+		<div id="rotateFButtonId">rotateF</div>
+		<div id="rotateLprButtonId">rotateLpr</div>
+		<div id="rotateBButtonId">rotateB</div>
+		<div id="rotateRprButtonId">rotateRpr</div>
+		<div id="rotateUprButtonId">rotateUpr</div>
+		<div id="rotateDprButtonId">rotateDpr</div>
+		<div id="rotateFprButtonId">rotateFpr</div>
+		<div id="rotateBprButtonId">rotateBpr</div>
+
+		<script src="js/three.js"></script>
+		<script src="js/dat.gui.js"></script>
+		<script src="js/Tween.js"></script>
+		<script src="js/controls/OrbitControls.js"></script>
+		<script src="js/allMaterialsArray.js"></script>
+		<script src="js/attachSides.js"></script>
+		<script src="js/transferWithinCubicleArray.js"></script>
+		<script src="js/transferWithinColorsArray.js"></script>
+		<script src="js/translateColorsToSides.js"></script>
+		<script src="js/rotateSides.js"></script>
+		<script src="js/patterns.js"></script>
+
+		<script src="js/libs/stats.min.js"></script>
+
+		<script>
+			var a,b, intersects, hit=false, selected = new THREE.Object3D();
+			var container, stats;
+			var camera, controls, scene, renderer;
+			var attachedXp, attachedXn, attachedYp, attachedYn, attachedZp, attachedZn;
+			var raycaster, mouse;
+			let cubicleArray = [ [], [], [] ];
+			var activeCubicles = [];
+			//let colorsArray = [];
+			
+			var colorsArray = new Array(6);
+			for (i = 0; i < 6; i++)
+				colorsArray[i]=new Array(9);
+			setColorsArray();
+			init();
+			animate();
+			
+			function setColorsArray()
+			{
+				
+				var color = 1;
+				// 1=green, 2=red, 3=white, 4=yellow, 5=orange, 6=blue
+				for (var i = 0; i < 6; i++) 
+				{
+					for (var j = 0; j < 9; j++) 
+					{
+						colorsArray[i][j] = color;
+						if (j == 8) 
+						{
+							color ++;
+						}
+					}
+						
+				}
+			}
+			function init() 
+			{
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.set(-200,200,300);
+				
+				
+                //set up the scene
+                scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xf0f0f0 );
+				scene.add( new THREE.AmbientLight( 0x505050 ) );
+				
+                // Domes that act as a background
+      			var sphereMat = new THREE.MeshBasicMaterial({ color: 0x5a4d3e, wireframe: true, transparent: true, opacity: 0.6 });
+
+     			var sphere1Geo = new THREE.SphereGeometry(600, 20, 10);
+      			var sphere2Geo = new THREE.IcosahedronGeometry( 700, 2 );
+
+      			var sphere1 = new THREE.Mesh( sphere1Geo, sphereMat );
+      			var sphere2 = new THREE.Mesh( sphere2Geo, sphereMat );
+
+      			scene.add( sphere1 );
+      			scene.add( sphere2 );
+				
+				// creating all the cubes
+            	var geometry = new THREE.BoxGeometry( 40, 40, 40 );  
+				cubicleArray.forEach((element, index, array) => {
+                array[index]=Array.apply(0, Array(3)).map(function() { return Array.apply(0, Array(3)); });
+				});
+				var posX, posY, posZ, mat=0;
+				for (var i = 0, posY=-40; i < 3; i ++, posY+=40)
+				{
+					for (var j = 0, posZ=-40; j < 3; j++, posZ+=40)
+					{
+						for (var k = 0, posX=-40; k < 3; k++, posX+=40)
+						{
+							var cubicle = new THREE.Mesh( geometry,  allMaterialsArray[mat] );	
+							mat++;
+							cubicle.position.x = posX;
+							cubicle.position.y = posY;
+							cubicle.position.z = posZ;
+							
+							cubicle.castShadow = true;
+							cubicle.receiveShadow = true;
+							scene.add( cubicle );
+							cubicleArray[i][j][k] = cubicle;
+						}
+					}
+				}	
+				
+                renderer = new THREE.WebGLRenderer( { antialias: true } ); 
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				
+				controls = new THREE.OrbitControls(camera, renderer.domElement);
+				controls.target.copy(cubicleArray[1][1][1].position);
+				
+            	window.addEventListener( 'resize', onWindowResize, false );
+				 
+				 
+				var rotateLButton = document.getElementById( 'rotateLButtonId' );
+				var rotateRButton = document.getElementById( 'rotateRButtonId' );
+				var rotateUButton = document.getElementById( 'rotateUButtonId' );	
+				var rotateDButton = document.getElementById( 'rotateDButtonId' );
+				var rotateFButton = document.getElementById( 'rotateFButtonId' );
+				var rotateBButton = document.getElementById( 'rotateBButtonId' );
+				var rotateLprButton = document.getElementById( 'rotateLprButtonId' );
+				var rotateRprButton = document.getElementById( 'rotateRprButtonId' );
+				var rotateUprButton = document.getElementById( 'rotateUprButtonId' );
+				var rotateDprButton = document.getElementById( 'rotateDprButtonId' );
+				var rotateFprButton = document.getElementById( 'rotateFprButtonId' );
+				var rotateBprButton = document.getElementById( 'rotateBprButtonId' );
+				
+				//var isOn = false;
+				rotateLButton.onclick = function rL()
+				{	 
+					
+					// if (isOn == false) {
+					// 	isOn = true;
+					// 	rotateL();
+					// }
+					//rotateL();
+					
+					for (let i = 0; i < 3; i++) 
+					{
+						let randomSide = sideRotationsArray[Math.floor(Math.random()*sideRotationsArray.length)];
+						wait((t+=500), randomSide);
+						console.log(randomSide);
+					}
+					
+					
+				}
+				rotateRButton.onclick = function rR() 
+				{	 
+	
+					//rotateR();
+					//console.log(isOn);
+					container.removeChild( stats.dom )
+					
+										
+				}
+				rotateUButton.onclick = function rU()
+				{	 
+					//rotateU();	
+					container.appendChild( stats.dom )				
+				}
+				rotateDButton.onclick = function rD()
+				{	 
+					rotateD();
+				}
+				rotateFButton.onclick = function rF()
+				{	 
+					rotateF();
+				}
+				rotateBButton.onclick = function rB()
+				{	 
+					rotateB();
+					//rotateMpr();
+					//rotateXpr();
+				}
+
+				rotateLprButton.onclick = function rLpr()
+				{	 
+					rotateLpr();
+				}
+				rotateRprButton.onclick = function rRpr()
+				{	 
+					rotateRpr();
+				}
+				rotateUprButton.onclick = function rUpr()
+				{	 
+					//rotateUpr();
+					var timeout = wait(500, rotateL);
+					clearTimeout(timeout);
+					timeout = wait(500, rotateR);
+				}
+				rotateDprButton.onclick = function rDpr()
+				{	 
+					rotateDpr();
+				}
+				rotateFprButton.onclick = function rFpr()
+				{	 
+					rotateFpr();
+					
+					//  console.log("1=green, 2=red, 3=white, 4=yellow, 5=orange, 6=blue");
+					//  console.log(colorsArray);
+					//  createCubeState();
+					//  console.log(cubeState);
+					
+				}
+				rotateBprButton.onclick = function rBpr()
+				{	 
+					rotateBpr();
+					// //rotateEpr();
+					// rotateU();
+					// for (let i = 0, t = 0; i < 2; i++) 
+					// {
+					// 	wait((t+=500), rotateL);
+					// 	wait((t+=500), rotateE);
+					// }
+				}
+				
+				// Options to be added to the GUI
+				var options = 
+				{
+					SixSpots: function() 
+					{
+						sixSpots();
+					},
+					CheckerBoard: function() 
+					{
+						checkerBoard();
+					},
+					TwistedPeaks: function() 
+					{
+						twistedPeaks();
+					},
+					CubeInCube: function() 
+					{
+						cubeInCube();
+					},
+					CubeInCubeInCube: function() 
+					{
+						cubeInCubeInCube();
+					},
+					Superflip: function() 
+					{
+						superflip();
+					},
+					SolveCube: function() 
+					{
+						solveCube();
+					},
+					ReloadCube: function()
+					{
+						window.location.reload();
+					}
+				};
+
+				// DAT.GUI Related Stuff
+				//create 
+				var gui = new dat.GUI();
+
+				var patterns = gui.addFolder('Cool Patterns');
+				patterns.add(options, 'SixSpots').name("Six Spots");
+				patterns.add(options, 'CheckerBoard').name("Checker Board");
+				patterns.add(options, 'TwistedPeaks').name("Twisted Peaks");
+				patterns.add(options, 'CubeInCube').name("Cube In a Cube");
+				patterns.add(options, 'CubeInCubeInCube').name("Cube In a Cube In a Cube");
+				patterns.add(options, 'Superflip').name("Superflip");
+
+				var solve = gui.addFolder('Solve');
+				solve.add(options, 'SolveCube').name("Solve Cube");
+				solve.add(options, 'ReloadCube').name("Reload Cube");
+	
+				gui.close();
+
+				//create stats
+				stats = new Stats();
+				container.appendChild( stats.dom );
+			}
+			
+			
+			// Detach the sides and reset the rotation
+			function detach()
+			{
+				for (var i = 0; i < activeCubicles.length; i++) 
+				{
+					THREE.SceneUtils.detach( activeCubicles[i], cubicleArray[1][1][1], scene );
+				}
+					activeCubicles.length=0;
+					cubicleArray[1][1][1].rotation.set(0,0,0);
+					attachedXp = false;
+					attachedXn = false;
+					attachedYp = false;
+					attachedYn = false;
+					attachedZp = false;
+					attachedZn = false;
+					hit=false;
+					//isOn = false;
+					
+			}
+			//resizes the project according to the window
+			function onWindowResize()
+			{
+				 camera.aspect = window.innerWidth / window.innerHeight;
+				 camera.updateProjectionMatrix();
+				 renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+			//function to wait before executing another function
+			function wait(milliseconds, foo)
+			{
+    			return setTimeout(function () {
+       			 foo(); // will be executed after the specified time
+    			}, milliseconds);
+			}
+
+
+			raycaster = new THREE.Raycaster();
+			mouse = new THREE.Vector2();
+			document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+			document.addEventListener( 'mouseup', onDocumentMouseUp, false);
+			document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+			document.addEventListener( 'touchend', onDocumentTouchEnd, false );
+
+
+			offsetY = 75;
+			var side1, side2, sides=[];
+			//functions for touchscreen
+			function onDocumentTouchStart( event ) 
+			{
+				
+				event.preventDefault();
+				
+				event.clientX = event.touches[0].clientX;
+				event.clientY = event.touches[0].clientY;
+				onDocumentMouseDown( event );
+			}
+			function onDocumentTouchEnd( event ) 
+			{
+				
+				event.preventDefault();
+				
+				event.clientX = event.changedTouches[0].clientX;
+				event.clientY = event.changedTouches[0].clientY;
+				onDocumentMouseUp( event );
+			}
+			
+			//functions for clicking
+			function onDocumentMouseDown( event ) 
+			{
+				event.preventDefault();
+				
+				mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+				mouse.y = - ( (event.clientY - offsetY) / renderer.domElement.clientHeight ) * 2 + 1;
+				raycaster.setFromCamera( mouse, camera );
+				intersects = raycaster.intersectObjects( scene.children );
+				
+				if ( intersects.length > 0 ) 
+				{
+					controls.enabled = false;
+					a = new THREE.Vector2( mouse.x, mouse.y);
+					hit = true;
+					sides = clickedCube(intersects[0].object.id)
+					side1 = sides[0];
+					side2 = sides[1];
+				}
+				else
+				{
+					controls.enabled = false;
+					a = new THREE.Vector2( mouse.x, mouse.y);
+				}	
+			}
+			function onDocumentMouseUp(event) 
+			{
+				mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+				mouse.y = - ( (event.clientY - offsetY) / renderer.domElement.clientHeight ) * 2 + 1;
+				if ( hit )
+				{
+					var dir;
+					b = new THREE.Vector2( mouse.x, mouse.y );
+					dir = rotationDirection(a.x, a.y, b.x, b.y);
+					rotationSide(dir, side1, side2);
+				}
+				else
+				{
+					b = new THREE.Vector2( mouse.x, mouse.y );
+					dir = rotationDirection(a.x, a.y, b.x, b.y);
+					rotationWholeCube(dir);
+				}
+				controls.enabled = true;
+  			}
+			
+			//takes the id from the cube that is clicked and returns the sides it is connected to
+			function clickedCube(cubicleId)
+			{
+				var sides = [];
+				switch (cubicleId) 
+				{
+					case cubicleArray[0][2][0].id: 
+					case cubicleArray[1][2][0].id:
+					case cubicleArray[2][2][0].id:
+						sides[0] = 'L';
+						break;
+					case cubicleArray[0][2][1].id:
+					case cubicleArray[1][2][1].id:
+					case cubicleArray[2][2][1].id:
+						sides[0] = 'M';
+						break;
+					case cubicleArray[0][2][2].id:
+					case cubicleArray[1][2][2].id:
+					case cubicleArray[2][2][2].id:
+						sides[0] = 'R';
+						break;
+				}
+				switch (cubicleId) 
+				{
+					case cubicleArray[2][2][0].id:
+					case cubicleArray[2][2][1].id:
+					case cubicleArray[2][2][2].id:
+						sides[1] = 'U';
+						break;
+					case cubicleArray[1][2][0].id:
+					case cubicleArray[1][2][1].id:
+					case cubicleArray[1][2][2].id:
+						sides[1] = 'E';
+						break;
+					case cubicleArray[0][2][0].id:
+					case cubicleArray[0][2][1].id:
+					case cubicleArray[0][2][2].id:
+						sides[1] = 'D';
+						break;
+				}
+				return sides;
+			}
+
+			//returns the direction of dragging
+			function rotationDirection(aX, aY, bX, bY)
+			{
+				
+				if (b.x > a.x && Math.abs(b.x-a.x) > Math.abs(b.y-a.y))
+				{
+					return "right";
+				}
+				else if (b.x < a.x && Math.abs(b.x-a.x) > Math.abs(b.y-a.y))
+				{
+					return "left";	
+				}
+				if (b.y > a.y && Math.abs(b.x-a.x) < Math.abs(b.y-a.y)) 
+				{
+					return "up";
+				}
+				else if (b.y < a.y && Math.abs(b.x-a.x) < Math.abs(b.y-a.y))
+				{
+					return "down";
+				}
+	
+			}
+
+			//rotates the whole cube according to the dragged direction
+			function rotationWholeCube(direction)
+			{
+				switch (direction) {
+					case "right":
+						rotateYpr();
+						break;
+					case "left":
+						rotateY();
+						break;
+					case "up":
+						rotateX();
+						break;
+					case "down":
+						rotateXpr();
+						break;
+				}
+			}
+
+			//rotates the correct side according to the direction of dragging
+			function rotationSide(direction , side1, side2)
+			{
+				switch (direction) {
+					case "right":
+						if (side1 == 'U' || side2 == 'U') 
+						{
+							rotateUpr();	
+						}
+						else if (side1 == 'E' || side2 == 'E')
+						{
+							rotateE();
+						}
+						else if (side1 == 'D' || side2 == 'D')
+						{
+							rotateD();
+						}
+						break;
+					case "left":
+						if (side1 == 'U' || side2 == 'U') 
+						{
+							rotateU();	
+						}
+						else if (side1 == 'E' || side2 == 'E')
+						{
+							rotateEpr();
+						}
+						else if (side1 == 'D' || side2 == 'D')
+						{
+							rotateDpr();
+						}
+						break;
+					case "up":
+						if (side1 == 'L' || side2 == 'L') 
+						{
+							rotateLpr();	
+						}
+						else if (side1 == 'M' || side2 == 'M')
+						{
+							rotateMpr();
+						}
+						else if (side1 == 'R' || side2 == 'R')
+						{
+							rotateR();
+						}
+						break;
+					case "down":
+						if (side1 == 'L' || side2 == 'L') 
+						{
+							rotateL();	
+						}
+						else if (side1 == 'M' || side2 == 'M')
+						{
+							rotateM();
+						}
+						else if (side1 == 'R' || side2 == 'R')
+						{
+							rotateRpr();
+						}
+						break;
+				}
+			}
+			
+			//solving algorithm incorporation
+			const httpJSONRequest = function (url) 
+			{
+				return new Promise(function (resolve, reject) 
+				{
+					let xhr = new XMLHttpRequest();
+
+					xhr.withCredentials = false;
+					xhr.open('GET', url, true);
+					xhr.send();
+					xhr.addEventListener("readystatechange", processRequest, false);
+
+					function processRequest(e) 
+					{
+						if (xhr.readyState == 4 && xhr.status == 200) 
+						{
+							let response = JSON.parse(xhr.responseText);
+							resolve(response);
+						} 
+						else if (xhr.readyState == 4) 
+						{
+							reject(Error("Something went wrong with the request \n\t\t\t\t\t XHR Status: " + xhr.status));
+						}
+					}
+				});
+			};
+			
+			var cubeState = [];
+			function createCubeState()
+			{
+				translateColorsToSides();
+				for (let i = 0, k = 0; i < 6; i++) 
+                {
+                    for (let j = 0; j < 9; j++, k++) 
+                    {
+						cubeState[k] = colorsArray[i][j];
+					}
+				}
+			}
+			function solveCube()
+			{
+				createCubeState();
+				httpJSONRequest(`/solution/${cubeState.join('')}`)
+				.then((solution) => 
+				{
+				console.log(solution.split(' '));
+				//use solution ...
+				playSolution(solution.split(' '));
+				});
+			}
+
+			function turn(solution, index, side)
+			{
+				if (solution[index].substring(1,2) == "2") 
+				{
+					for (let i = 0; i < 2; i++) 
+					{
+						waitAndIncrement(side);
+					}
+				}
+				else
+				waitAndIncrement(side);
+			}
+			var t = 0;
+
+			function waitAndIncrement(rotateside)
+			{
+				t+=500;
+				wait(t, rotateside);
+			}
+
+			function playSolution(solution)
+			{
+				for (let i = 0; i < solution.length; i++) 
+				{
+					if (solution[i] === "L" || solution[i].startsWith("L2")) 
+					{	
+						turn(solution, i, rotateL);
+					}
+					else if (solution[i] === "M") 
+					{
+						wait((t+=500), rotateM);
+					}
+					else if (solution[i] === "R" || solution[i].startsWith("R2")) 
+					{
+						turn(solution, i, rotateR);
+					}
+					else if (solution[i] === "U" || solution[i].startsWith("U2")) 
+					{
+						turn(solution, i, rotateU);
+					}
+					else if (solution[i] === "E") 
+					{
+						wait((t+=500), rotateE);
+					}
+					else if (solution[i] === "D" || solution[i].startsWith("D2")) 
+					{
+						turn(solution, i, rotateD);
+					}
+					else if (solution[i] === "F" || solution[i].startsWith("F2")) 
+					{
+						turn(solution, i, rotateF);
+					}
+					else if (solution[i] === "S") 
+					{
+						wait((t+=500), rotateY);
+						wait((t+=500), rotateM);
+						wait((t+=500), rotateYpr);
+					}
+					else if (solution[i] === "B" || solution[i].startsWith("B2")) 
+					{
+						turn(solution, i, rotateB);
+					}
+					else if (solution[i] === "Lprime") 
+					{
+						wait((t+=500), rotateLpr);	
+					}
+					else if (solution[i] === "Mprime") 
+					{
+						wait((t+=500), rotateMpr);
+					}
+					else if (solution[i] === "Rprime") 
+					{
+						wait((t+=500), rotateRpr);
+					}
+					else if (solution[i] === "Uprime") 
+					{
+						wait((t+=500), rotateUpr);
+					}
+					else if (solution[i] === "Eprime") 
+					{
+						wait((t+=500), rotateEpr);
+					}
+					else if (solution[i] === "Dprime") 
+					{
+						wait((t+=500), rotateDpr);
+					}
+					else if (solution[i] === "Fprime") 
+					{
+						wait((t+=500), rotateFpr);
+					}
+					else if (solution[i] === "Sprime") 
+					{
+						wait((t+=500), rotateY);
+						wait((t+=500), rotateMpr);
+						wait((t+=500), rotateYpr);
+					}
+					else if (solution[i] === "Bprime") 
+					{
+						wait((t+=500), rotateBpr);
+					}
+					else if (solution[i] === "l") 
+					{
+						wait((t+=500), rotateL);
+						wait((t+=500), rotateM);
+					}
+					else if (solution[i] === "lprime") 
+					{
+						wait((t+=500), rotateLpr);
+						wait((t+=500), rotateMpr);
+					}
+					else if (solution[i] === "r") 
+					{
+						wait((t+=500), rotateR);
+						wait((t+=500), rotateMpr);
+					}
+					else if (solution[i] === "rprime") 
+					{
+						wait((t+=500), rotateRpr);
+						wait((t+=500), rotateM);
+					}
+					else if (solution[i] === "u") 
+					{
+						wait((t+=500), rotateU);
+						wait((t+=500), rotateEpr);
+					}
+					else if (solution[i] === "uprime") 
+					{
+						wait((t+=500), rotateUpr);
+						wait((t+=500), rotateE);
+					}
+					else if (solution[i] === "d") 
+					{
+						wait((t+=500), rotateD);
+						wait((t+=500), rotateE);
+					}
+					else if (solution[i] === "dprime") 
+					{
+						wait((t+=500), rotateDpr);
+						wait((t+=500), rotateEpr);
+					}
+					else if (solution[i] === "f") 
+					{
+						wait((t+=500), rotateY);
+						wait((t+=500), rotateL);
+						wait((t+=500), rotateM);
+						wait((t+=500), rotateYpr);
+					}
+					else if (solution[i] === "fprime") 
+					{
+						wait((t+=500), rotateY);
+						wait((t+=500), rotateLpr);
+						wait((t+=500), rotateMpr);
+						wait((t+=500), rotateYpr);
+					}
+					else if (solution[i] === "b") 
+					{
+						wait((t+=500), rotateYpr);
+						wait((t+=500), rotateL);
+						wait((t+=500), rotateM);
+						wait((t+=500), rotateY);
+					}
+					else if (solution[i] === "bprime") 
+					{
+						wait((t+=500), rotateYpr);
+						wait((t+=500), rotateLpr);
+						wait((t+=500), rotateMpr);
+						wait((t+=500), rotateY);
+					}
+				}
+			}
+			
+
+
+			function animate()
+			{
+				 requestAnimationFrame( animate );
+				 render();
+				 stats.update();
+			}
+			function render() 
+			{
+				let endAnimation = false;
+				let speed = 0.2;
+				controls.update();
+				
+
+				if(attachedXp === true)
+				{
+            		
+                	cubicleArray[1][1][1].rotation.x += speed;
+                	if(cubicleArray[1][1][1].rotation.x >= Math.PI / 2.0) 
+					{
+                    	cubicleArray[1][1][1].rotation.x = Math.PI / 2.0;
+                    	endAnimation = true;
+                	}
+					
+				}
+				if(attachedXn === true)
+				{
+            		
+                	cubicleArray[1][1][1].rotation.x -= speed;
+                	if(cubicleArray[1][1][1].rotation.x <= -Math.PI / 2.0) 
+					{
+                    	cubicleArray[1][1][1].rotation.x = -Math.PI / 2.0;
+                    	endAnimation = true;
+                	}
+					
+				}
+				if(attachedYn === true)
+				{
+            		
+                	cubicleArray[1][1][1].rotation.y -= speed;
+                	if(cubicleArray[1][1][1].rotation.y <= -Math.PI / 2.0) 
+					{
+                    	cubicleArray[1][1][1].rotation.y = -Math.PI / 2.0;
+                    	endAnimation = true;
+                	}
+				} 
+				if(attachedYp === true)
+				{
+            		
+                	cubicleArray[1][1][1].rotation.y += speed;
+                	if(cubicleArray[1][1][1].rotation.y >= Math.PI / 2.0) 
+					{
+                    	cubicleArray[1][1][1].rotation.y = Math.PI / 2.0;
+                    	endAnimation = true;
+                	}
+				}
+				if(attachedZn === true)
+				{
+            		
+                	cubicleArray[1][1][1].rotation.z -= speed;
+                	if(cubicleArray[1][1][1].rotation.z <= -Math.PI / 2.0) 
+					{
+                    	cubicleArray[1][1][1].rotation.z = -Math.PI / 2.0;
+                    	endAnimation = true;
+                	}
+				}
+				if(attachedZp === true)
+				{
+            		
+                	cubicleArray[1][1][1].rotation.z += speed;
+                	if(cubicleArray[1][1][1].rotation.z >= Math.PI / 2.0) 
+					{
+                    	cubicleArray[1][1][1].rotation.z = Math.PI / 2.0;
+                    	endAnimation = true;
+                	}
+				}   
+            	renderer.render(scene, camera);
+            	if (endAnimation) 
+				{
+                	detach();
+            	}
+			}
+		</script>
+	</body>
+</html>

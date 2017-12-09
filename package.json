@@ -1,0 +1,15 @@
+{
+  "name": "edin_server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tedo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "rubiks-cube-solver": "^1.1.3"
+  }
+}
