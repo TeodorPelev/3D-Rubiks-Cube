@@ -4,16 +4,15 @@ const solver = require('rubiks-cube-solver');
 
 const app = express();
 
+app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'js')));
 app.use(express.static(path.join(__dirname, 'textures')));
 
 app.set('port', 3000);
 
 const server = app.listen(app.get('port'), function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log("Example app listening at http://%s:%s", host, port)
-
+  const { port } = server.address();
+  console.log(`Listening on port ${port}`);
 });
 
 app.get('/', function (req, res) {
