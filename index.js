@@ -4,8 +4,8 @@ const solver = require('rubiks-cube-solver');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname + 'js')));
-app.use(express.static(path.join(__dirname + 'textures')));
+app.use(express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname, 'textures')));
 
 app.set('port', 3000);
 
@@ -17,7 +17,7 @@ const server = app.listen(app.get('port'), function () {
 });
 
 app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname + "Rubiks_Cube.html"));
+   res.sendFile(path.join(__dirname, "Rubiks_Cube.html"));
 });
 
 app.get('/process_get', function (req, res) {
