@@ -15,10 +15,6 @@ const server = app.listen(app.get('port'), function () {
   console.log(`Listening on port ${port}`);
 });
 
-app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname, "Rubiks_Cube.html"));
-});
-
 app.get('/process_get', function (req, res) {
    // Prepare output in JSON format
    response = {
