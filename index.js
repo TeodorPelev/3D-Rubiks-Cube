@@ -1,12 +1,14 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const path = require('path');
 const solver = require('rubiks-cube-solver');
 
-app.use(express.static('public'));
-app.use("/js", express.static(__dirname + '/js'));
-app.use("/textures", express.static(__dirname + '/textures'));
+const app = express();
 
-app.get('/Rubiks_Cube.html', function (req, res) {
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname + 'js')));
+app.use(express.static(path.join(__dirname + 'textures')));
+
+app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "Rubiks_Cube.html" );
 })
 
