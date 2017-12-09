@@ -4,9 +4,7 @@ const solver = require('rubiks-cube-solver');
 
 const app = express();
 
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'js')));
-app.use(express.static(path.join(__dirname, 'textures')));
+app.use(express.static(__dirname, 'public'));
 
 app.set('port', 3000);
 
