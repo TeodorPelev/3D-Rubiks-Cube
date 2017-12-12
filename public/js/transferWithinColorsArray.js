@@ -187,3 +187,55 @@ function transferColorsLpr()
     }
     transferColorsSidePr(4);
 }
+
+function transferColorsF()
+{
+    for (let i = 0, j = 6, k = 8, l = 2; i < 3; i++, j = j - 3, k--, l = l + 3) 
+    {
+        transferColor[i] = colorsArray[3][i];
+        colorsArray[3][i] = colorsArray[1][j];
+        colorsArray[1][j] = colorsArray[2][k];
+        colorsArray[2][k] = colorsArray[4][l];
+        colorsArray[4][l] = transferColor[i];  
+    }
+    transferColorsSide(0);
+}
+
+function transferColorsFpr()
+{
+    for (let i = 0, j = 6, k = 8, l = 2; i < 3; i++, j = j - 3, k--, l = l + 3) 
+    {
+        transferColor[i] = colorsArray[3][i];
+        colorsArray[3][i] = colorsArray[4][l];
+        colorsArray[4][l] = colorsArray[2][k];
+        colorsArray[2][k] = colorsArray[1][j];
+        colorsArray[1][j] = transferColor[i];  
+    }
+    transferColorsSidePr(0);
+}
+
+function transferColorsB()
+{
+    for (let i = 0, j = 6, k = 8, l = 2; i < 3; i++, j = j - 3, k--, l = l + 3) 
+    {
+        transferColor[i] = colorsArray[2][i];
+        colorsArray[2][i] = colorsArray[1][l];
+        colorsArray[1][l] = colorsArray[3][k];
+        colorsArray[3][k] = colorsArray[4][j];
+        colorsArray[4][j] = transferColor[i];  
+    }
+    transferColorsSide(5);
+}
+
+function transferColorsBpr()
+{
+    for (let i = 0, j = 6, k = 8, l = 2; i < 3; i++, j = j - 3, k--, l = l + 3) 
+    {
+        transferColor[i] = colorsArray[2][i];
+        colorsArray[2][i] = colorsArray[4][j];
+        colorsArray[4][j] = colorsArray[3][k];
+        colorsArray[3][k] = colorsArray[1][l];
+        colorsArray[1][l] = transferColor[i];  
+    }
+    transferColorsSidePr(5);
+}

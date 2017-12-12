@@ -7,7 +7,7 @@ function rotateL()
     transferColorsL();
     attachedXp = true;
 }
-sideRotationsArray.push("rotateL");
+sideRotationsArray.push(rotateL);
 
 function rotateM()
 {	 
@@ -16,7 +16,7 @@ function rotateM()
     transferColorsM();
     attachedXp = true;
 }
-sideRotationsArray.push("rotateM");
+sideRotationsArray.push(rotateM);
 
 function rotateR() 
 {	 
@@ -25,7 +25,7 @@ function rotateR()
     transferColorsR();
     attachedXn = true;
 }
-sideRotationsArray.push("rotateR");
+sideRotationsArray.push(rotateR);
 
 function rotateU()
 {	 
@@ -34,7 +34,7 @@ function rotateU()
     transferColorsU();				
     attachedYn = true;
 }
-sideRotationsArray.push("rotateU");
+sideRotationsArray.push(rotateU);
 
 function rotateE()
 {	 
@@ -43,7 +43,7 @@ function rotateE()
     transferColorsE();
    attachedYp = true;
 }
-sideRotationsArray.push("rotateE");
+sideRotationsArray.push(rotateE);
 
 function rotateD()
 {	 
@@ -52,23 +52,25 @@ function rotateD()
     transferColorsD();
     attachedYp = true;
 }
-sideRotationsArray.push("rotateD");
+sideRotationsArray.push(rotateD);
 
 function rotateF()
 {	 
     attachF();
     transferF();
+    transferColorsF();
     attachedZn = true;
 }
-sideRotationsArray.push("rotateF");
+sideRotationsArray.push(rotateF);
 
 function rotateB()
 {	 
     attachB();
     transferB();
+    transferColorsB();
     attachedZp = true;
 }
-sideRotationsArray.push("rotateB");
+sideRotationsArray.push(rotateB);
 
 function rotateLpr()
 {	 
@@ -77,7 +79,7 @@ function rotateLpr()
     transferColorsLpr();
     attachedXn = true;
 }
-sideRotationsArray.push("rotateLpr");
+sideRotationsArray.push(rotateLpr);
 
 function rotateMpr()
 {	 
@@ -86,7 +88,7 @@ function rotateMpr()
     transferColorsMpr();
     attachedXn = true;
 }
-sideRotationsArray.push("rotateMpr");
+sideRotationsArray.push(rotateMpr);
 
 function rotateRpr()
 {	 
@@ -95,7 +97,7 @@ function rotateRpr()
     transferColorsRpr();
     attachedXp = true;
 }
-sideRotationsArray.push("rotateRpr");
+sideRotationsArray.push(rotateRpr);
 
 function rotateUpr()
 {	 
@@ -104,7 +106,7 @@ function rotateUpr()
     transferColorsUpr();
     attachedYp = true;
 }
-sideRotationsArray.push("rotateUpr");
+sideRotationsArray.push(rotateUpr);
 
 function rotateEpr()
 {	 
@@ -113,7 +115,7 @@ function rotateEpr()
     transferColorsEpr();
     attachedYn = true;
 }
-sideRotationsArray.push("rotateEpr");
+sideRotationsArray.push(rotateEpr);
 
 function rotateDpr()
 {	 
@@ -122,23 +124,25 @@ function rotateDpr()
     transferColorsDpr();
     attachedYn = true;
 }
-sideRotationsArray.push("rotateDpr");
+sideRotationsArray.push(rotateDpr);
 
 function rotateFpr()
 {	 
     attachF();
     transferFpr();
+    transferColorsFpr();
     attachedZp = true;
 }
-sideRotationsArray.push("rotateFpr");
+sideRotationsArray.push(rotateFpr);
 
 function rotateBpr()
 {	 
     attachB();
     transferBpr();
+    transferColorsBpr();
     attachedZn = true;
 }
-sideRotationsArray.push("rotateBpr");
+sideRotationsArray.push(rotateBpr);
 
 function rotateYpr()
 {
@@ -151,7 +155,7 @@ function rotateYpr()
     transferColorsD();
     attachedYp = true;
 }
-sideRotationsArray.push("rotateYpr");
+sideRotationsArray.push(rotateYpr);
 
 function rotateY()
 {
@@ -164,7 +168,7 @@ function rotateY()
     transferColorsDpr();
     attachedYn = true;
 }
-sideRotationsArray.push("rotateY");
+sideRotationsArray.push(rotateY);
 
 function rotateX()
 {
@@ -177,7 +181,7 @@ function rotateX()
     transferColorsR();
     attachedXn = true;
 }
-sideRotationsArray.push("rotateX");
+sideRotationsArray.push(rotateX);
 
 function rotateXpr()
 {
@@ -190,12 +194,4 @@ function rotateXpr()
     transferColorsRpr();
     attachedXp = true;
 }
-sideRotationsArray.push("rotateXpr");
-
-
-
-
-
-
-
-
+sideRotationsArray.push(rotateXpr);

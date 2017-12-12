@@ -1,3 +1,7 @@
+var translatedColorsArray = new Array(6);
+for (i = 0; i < 6; i++)
+    translatedColorsArray[i]=new Array(9);
+
 function translateColorsToSides()
 {
     switch (colorsArray[0][4]) 
@@ -12,22 +16,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                            colorsArray[i][j] = 'f';
+                            translatedColorsArray[i][j] = 'f';
                                 break;
                             case 2: 
-                            colorsArray[i][j] = 'r';
+                            translatedColorsArray[i][j] = 'r';
                                 break;
                             case 3: 
-                            colorsArray[i][j] = 'u';
+                            translatedColorsArray[i][j] = 'u';
                                 break;
                             case 4: 
-                            colorsArray[i][j] = 'd';
+                            translatedColorsArray[i][j] = 'd';
                                 break;
                             case 5: 
-                            colorsArray[i][j] = 'l';
+                            translatedColorsArray[i][j] = 'l';
                                 break;
                             case 6: 
-                            colorsArray[i][j] = 'b';
+                            translatedColorsArray[i][j] = 'b';
                                 break;
                         }
                         
@@ -46,22 +50,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                            colorsArray[i][j] = 'f';
+                            translatedColorsArray[i][j] = 'f';
                                 break;
                             case 2: 
-                            colorsArray[i][j] = 'l';
+                            translatedColorsArray[i][j] = 'l';
                                 break;
                             case 3: 
-                            colorsArray[i][j] = 'd';
+                            translatedColorsArray[i][j] = 'd';
                                 break;
                             case 4: 
-                            colorsArray[i][j] = 'u';
+                            translatedColorsArray[i][j] = 'u';
                                 break;
                             case 5: 
-                            colorsArray[i][j] = 'r';
+                            translatedColorsArray[i][j] = 'r';
                                 break;
                             case 6: 
-                            colorsArray[i][j] = 'b';
+                            translatedColorsArray[i][j] = 'b';
                                 break;
                         }
                     }
@@ -76,22 +80,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                            colorsArray[i][j] = 'f';
+                            translatedColorsArray[i][j] = 'f';
                                 break;
                             case 2: 
-                            colorsArray[i][j] = 'u';
+                            translatedColorsArray[i][j] = 'u';
                                 break;
                             case 3: 
-                            colorsArray[i][j] = 'l';
+                            translatedColorsArray[i][j] = 'l';
                                 break;
                             case 4: 
-                            colorsArray[i][j] = 'r';
+                            translatedColorsArray[i][j] = 'r';
                                 break;
                             case 5: 
-                            colorsArray[i][j] = 'd';
+                            translatedColorsArray[i][j] = 'd';
                                 break;
                             case 6: 
-                            colorsArray[i][j] = 'b';
+                            translatedColorsArray[i][j] = 'b';
                                 break;
                         }
                     }
@@ -106,22 +110,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                         }
                     }
@@ -138,22 +142,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                         }
                     }
@@ -168,22 +172,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                         }
                     }
@@ -198,22 +202,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                         }
                     }
@@ -228,22 +232,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                         }
                     }
@@ -260,22 +264,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                         }
                     }
@@ -290,22 +294,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                         }
                     }
@@ -320,22 +324,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                         }
                     }
@@ -350,22 +354,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                         }
                     }
@@ -382,22 +386,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                         }
                     }
@@ -412,22 +416,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                         }
                     }
@@ -442,22 +446,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                         }
                     }
@@ -472,22 +476,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                         }
                     }
@@ -504,22 +508,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                         }
                     }
@@ -534,22 +538,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                         }
                     }
@@ -564,22 +568,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                         }
                     }
@@ -594,22 +598,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                         }
                     }
@@ -626,22 +630,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                            colorsArray[i][j] = 'b';
+                            translatedColorsArray[i][j] = 'b';
                                 break;
                             case 2: 
-                            colorsArray[i][j] = 'l';
+                            translatedColorsArray[i][j] = 'l';
                                 break;
                             case 3: 
-                            colorsArray[i][j] = 'u';
+                            translatedColorsArray[i][j] = 'u';
                                 break;
                             case 4: 
-                            colorsArray[i][j] = 'd';
+                            translatedColorsArray[i][j] = 'd';
                                 break;
                             case 5: 
-                            colorsArray[i][j] = 'r';
+                            translatedColorsArray[i][j] = 'r';
                                 break;
                             case 6: 
-                            colorsArray[i][j] = 'f';
+                            translatedColorsArray[i][j] = 'f';
                                 break;
                         }
                         
@@ -660,22 +664,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                            colorsArray[i][j] = 'b';
+                            translatedColorsArray[i][j] = 'b';
                                 break;
                             case 2: 
-                            colorsArray[i][j] = 'r';
+                            translatedColorsArray[i][j] = 'r';
                                 break;
                             case 3: 
-                            colorsArray[i][j] = 'd';
+                            translatedColorsArray[i][j] = 'd';
                                 break;
                             case 4: 
-                            colorsArray[i][j] = 'u';
+                            translatedColorsArray[i][j] = 'u';
                                 break;
                             case 5: 
-                            colorsArray[i][j] = 'l';
+                            translatedColorsArray[i][j] = 'l';
                                 break;
                             case 6: 
-                            colorsArray[i][j] = 'f';
+                            translatedColorsArray[i][j] = 'f';
                                 break;
                         }
                     }
@@ -690,22 +694,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                            colorsArray[i][j] = 'b';
+                            translatedColorsArray[i][j] = 'b';
                                 break;
                             case 2: 
-                            colorsArray[i][j] = 'u';
+                            translatedColorsArray[i][j] = 'u';
                                 break;
                             case 3: 
-                            colorsArray[i][j] = 'r';
+                            translatedColorsArray[i][j] = 'r';
                                 break;
                             case 4: 
-                            colorsArray[i][j] = 'l';
+                            translatedColorsArray[i][j] = 'l';
                                 break;
                             case 5: 
-                            colorsArray[i][j] = 'd';
+                            translatedColorsArray[i][j] = 'd';
                                 break;
                             case 6: 
-                            colorsArray[i][j] = 'f';
+                            translatedColorsArray[i][j] = 'f';
                                 break;
                         }
                     }
@@ -720,22 +724,22 @@ function translateColorsToSides()
                         switch (colorsArray[i][j]) 
                         {
                             case 1:
-                                colorsArray[i][j] = 'b';
+                                translatedColorsArray[i][j] = 'b';
                                 break;
                             case 2: 
-                                colorsArray[i][j] = 'd';
+                                translatedColorsArray[i][j] = 'd';
                                 break;
                             case 3: 
-                                colorsArray[i][j] = 'l';
+                                translatedColorsArray[i][j] = 'l';
                                 break;
                             case 4: 
-                                colorsArray[i][j] = 'r';
+                                translatedColorsArray[i][j] = 'r';
                                 break;
                             case 5: 
-                                colorsArray[i][j] = 'u';
+                                translatedColorsArray[i][j] = 'u';
                                 break;
                             case 6: 
-                                colorsArray[i][j] = 'f';
+                                translatedColorsArray[i][j] = 'f';
                                 break;
                         }
                     }

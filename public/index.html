@@ -10,7 +10,7 @@
 				margin: 0px;
 				overflow: hidden;
 			}
-			div#rotateLButtonId
+			/* div#rotateLButtonId
 			{
 				background-color: #FFFFFF;
 				width: 75px;
@@ -132,11 +132,11 @@
 				margin-top: 50px;
 				margin-left: -89px;
 				float: left;				
-			}
+			} */
 		</style>
 	</head>
 	<body>
-		<div id="rotateLButtonId">rotateL</div>
+		<!-- <div id="rotateLButtonId">rotateL</div>
 		<div id="rotateRButtonId">rotateR</div>
 		<div id="rotateUButtonId">rotateU</div>
 		<div id="rotateDButtonId">rotateD</div>
@@ -147,7 +147,7 @@
 		<div id="rotateUprButtonId">rotateUpr</div>
 		<div id="rotateDprButtonId">rotateDpr</div>
 		<div id="rotateFprButtonId">rotateFpr</div>
-		<div id="rotateBprButtonId">rotateBpr</div>
+		<div id="rotateBprButtonId">rotateBpr</div> -->
 
 		<script src="js/three.js"></script>
 		<script src="js/dat.gui.js"></script>
@@ -164,14 +164,14 @@
 		<script src="js/libs/stats.min.js"></script>
 
 		<script>
-			var a,b, intersects, hit=false, selected = new THREE.Object3D();
-			var container, stats;
-			var camera, controls, scene, renderer;
+			var a, b, intersects, hit=false;
+			var container;
+			var camera, controls, scene, renderer, stats;
 			var attachedXp, attachedXn, attachedYp, attachedYn, attachedZp, attachedZn;
+			var speed;
 			var raycaster, mouse;
 			let cubicleArray = [ [], [], [] ];
 			var activeCubicles = [];
-			//let colorsArray = [];
 			
 			var colorsArray = new Array(6);
 			for (i = 0; i < 6; i++)
@@ -273,93 +273,93 @@
 				var rotateBprButton = document.getElementById( 'rotateBprButtonId' );
 				
 				//var isOn = false;
-				rotateLButton.onclick = function rL()
-				{	 
+				// rotateLButton.onclick = function rL()
+				// {	 
 					
-					// if (isOn == false) {
-					// 	isOn = true;
-					// 	rotateL();
-					// }
-					//rotateL();
+				// 	// if (isOn == false) {
+				// 	// 	isOn = true;
+				// 	// 	rotateL();
+				// 	// }
+				// 	//rotateL();
 					
-					for (let i = 0; i < 3; i++) 
-					{
-						let randomSide = sideRotationsArray[Math.floor(Math.random()*sideRotationsArray.length)];
-						wait((t+=500), randomSide);
-						console.log(randomSide);
-					}
+				// 	for (let i = 0, waitTime = 0; i < 40; i++, waitTime+=500) 
+				// 	{
+						
+				// 		let randomSide = sideRotationsArray[Math.floor(Math.random()*sideRotationsArray.length)];
+				// 		wait((waitTime), randomSide);
+				// 	}
 					
 					
-				}
-				rotateRButton.onclick = function rR() 
-				{	 
+				// }
+				// rotateRButton.onclick = function rR() 
+				// {	 
 	
-					//rotateR();
-					//console.log(isOn);
-					container.removeChild( stats.dom )
+				// 	//rotateR();
+				// 	//console.log(isOn);
+				// 	container.removeChild( stats.dom )
 					
 										
-				}
-				rotateUButton.onclick = function rU()
-				{	 
-					//rotateU();	
-					container.appendChild( stats.dom )				
-				}
-				rotateDButton.onclick = function rD()
-				{	 
-					rotateD();
-				}
-				rotateFButton.onclick = function rF()
-				{	 
-					rotateF();
-				}
-				rotateBButton.onclick = function rB()
-				{	 
-					rotateB();
-					//rotateMpr();
-					//rotateXpr();
-				}
+				// }
+				// rotateUButton.onclick = function rU()
+				// {	 
+				// 	//rotateU();	
+				// 	container.appendChild( stats.dom )				
+				// }
+				// rotateDButton.onclick = function rD()
+				// {	 
+				// 	rotateD();
+				// }
+				// rotateFButton.onclick = function rF()
+				// {	 
+				// 	rotateF();
+				// }
+				// rotateBButton.onclick = function rB()
+				// {	 
+				// 	rotateB();
+				// 	//rotateMpr();
+				// 	//rotateXpr();
+				// }
 
-				rotateLprButton.onclick = function rLpr()
-				{	 
-					rotateLpr();
-				}
-				rotateRprButton.onclick = function rRpr()
-				{	 
-					rotateRpr();
-				}
-				rotateUprButton.onclick = function rUpr()
-				{	 
-					//rotateUpr();
-					var timeout = wait(500, rotateL);
-					clearTimeout(timeout);
-					timeout = wait(500, rotateR);
-				}
-				rotateDprButton.onclick = function rDpr()
-				{	 
-					rotateDpr();
-				}
-				rotateFprButton.onclick = function rFpr()
-				{	 
-					rotateFpr();
+				// rotateLprButton.onclick = function rLpr()
+				// {	 
+				// 	rotateLpr();
+				// }
+				// rotateRprButton.onclick = function rRpr()
+				// {	 
+				// 	rotateRpr();
+				// }
+				// rotateUprButton.onclick = function rUpr()
+				// {	 
+				// 	//rotateUpr();
+				// 	var timeout = wait(500, rotateL);
+				// 	clearTimeout(timeout);
+				// 	timeout = wait(500, rotateR);
+				// }
+				// rotateDprButton.onclick = function rDpr()
+				// {	 
+				// 	rotateDpr();
+				// }
+				// rotateFprButton.onclick = function rFpr()
+				// {	 
+				// 	rotateFpr();
 					
-					//  console.log("1=green, 2=red, 3=white, 4=yellow, 5=orange, 6=blue");
-					//  console.log(colorsArray);
-					//  createCubeState();
-					//  console.log(cubeState);
+				// 	//  console.log("1=green, 2=red, 3=white, 4=yellow, 5=orange, 6=blue");
+				// 	//  console.log(colorsArray);
+				// 	//  createCubeState();
+				// 	//  console.log(cubeState);
 					
-				}
-				rotateBprButton.onclick = function rBpr()
-				{	 
-					rotateBpr();
-					// //rotateEpr();
-					// rotateU();
-					// for (let i = 0, t = 0; i < 2; i++) 
-					// {
-					// 	wait((t+=500), rotateL);
-					// 	wait((t+=500), rotateE);
-					// }
-				}
+				// }
+				// rotateBprButton.onclick = function rBpr()
+				// {	 
+				// 	rotateBpr();
+				// 	// //rotateEpr();
+				// 	// rotateU();
+				// 	// for (let i = 0, t = 0; i < 2; i++) 
+				// 	// {
+				// 	// 	wait((t+=500), rotateL);
+				// 	// 	wait((t+=500), rotateE);
+				// 	// }
+				// }
 				
 				// Options to be added to the GUI
 				var options = 
@@ -395,26 +395,50 @@
 					ReloadCube: function()
 					{
 						window.location.reload();
-					}
+					},
+					ScrambleCube: function() 
+					{
+						scramble();
+					},
+					showStats: false
 				};
 
 				// DAT.GUI Related Stuff
 				//create 
 				var gui = new dat.GUI();
 
-				var patterns = gui.addFolder('Cool Patterns');
-				patterns.add(options, 'SixSpots').name("Six Spots");
-				patterns.add(options, 'CheckerBoard').name("Checker Board");
-				patterns.add(options, 'TwistedPeaks').name("Twisted Peaks");
-				patterns.add(options, 'CubeInCube').name("Cube In a Cube");
-				patterns.add(options, 'CubeInCubeInCube').name("Cube In a Cube In a Cube");
-				patterns.add(options, 'Superflip').name("Superflip");
+				var scrambleFolder = gui.addFolder('Scramble Cube');
+				scrambleFolder.add(options, 'ScrambleCube').name("Scramble Cube");
 
-				var solve = gui.addFolder('Solve');
-				solve.add(options, 'SolveCube').name("Solve Cube");
-				solve.add(options, 'ReloadCube').name("Reload Cube");
+				var patternsFolder = gui.addFolder('Cool Patterns');
+				patternsFolder.add(options, 'SixSpots').name("Six Spots");
+				patternsFolder.add(options, 'CheckerBoard').name("Checker Board");
+				patternsFolder.add(options, 'TwistedPeaks').name("Twisted Peaks");
+				patternsFolder.add(options, 'CubeInCube').name("Cube In a Cube");
+				patternsFolder.add(options, 'CubeInCubeInCube').name("Cube In a Cube In a Cube");
+				patternsFolder.add(options, 'Superflip').name("Superflip");
+
+				var solveFolder = gui.addFolder('Solve');
+				solveFolder.add(options, 'SolveCube').name("Solve Cube");
+				solveFolder.add(options, 'ReloadCube').name("Reload Cube");
+
+				var setingsFolder = gui.addFolder('Settings');
+				setingsFolder.add(options, 'showStats', true).name("Show Stats").onChange(toggleStats);
 	
 				gui.close();
+
+				function toggleStats(value)
+				{
+					if (value) 
+					{
+						container.appendChild( stats.dom );	
+					}
+					else
+					{
+						container.removeChild( stats.dom );
+					}
+				}
+
 
 				//create stats
 				stats = new Stats();
@@ -422,6 +446,7 @@
 			}
 			
 			
+
 			// Detach the sides and reset the rotation
 			function detach()
 			{
@@ -465,7 +490,7 @@
 			document.addEventListener( 'touchend', onDocumentTouchEnd, false );
 
 
-			offsetY = 75;
+			//offsetY = 75;
 			var side1, side2, sides=[];
 			//functions for touchscreen
 			function onDocumentTouchStart( event ) 
@@ -493,7 +518,7 @@
 				event.preventDefault();
 				
 				mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-				mouse.y = - ( (event.clientY - offsetY) / renderer.domElement.clientHeight ) * 2 + 1;
+				mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
 				raycaster.setFromCamera( mouse, camera );
 				intersects = raycaster.intersectObjects( scene.children );
 				
@@ -515,7 +540,8 @@
 			function onDocumentMouseUp(event) 
 			{
 				mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-				mouse.y = - ( (event.clientY - offsetY) / renderer.domElement.clientHeight ) * 2 + 1;
+				mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+				speed = 0.2;
 				if ( hit )
 				{
 					var dir;
@@ -715,14 +741,14 @@
                 {
                     for (let j = 0; j < 9; j++, k++) 
                     {
-						cubeState[k] = colorsArray[i][j];
+						cubeState[k] = translatedColorsArray[i][j];
 					}
 				}
 			}
 			function solveCube()
 			{
 				createCubeState();
-				httpJSONRequest(`/solution/${cubeState.join('')}`)
+				httpJSONRequest(`/api/${cubeState.join('')}`)
 				.then((solution) => 
 				{
 				console.log(solution.split(' '));
@@ -753,6 +779,7 @@
 
 			function playSolution(solution)
 			{
+				speed = 0.2;
 				for (let i = 0; i < solution.length; i++) 
 				{
 					if (solution[i] === "L" || solution[i].startsWith("L2")) 
@@ -900,9 +927,20 @@
 						wait((t+=500), rotateY);
 					}
 				}
+				t = 0;
 			}
 			
-
+			// do 40 random turns on the sides and the cube
+			function scramble()
+			{
+				speed = 0.8;
+				for (let i = 0, waitTime = 500; i < 40; i++, waitTime+=150) 
+					{
+						
+						let randomSide = sideRotationsArray[Math.floor(Math.random()*sideRotationsArray.length)];
+						wait((waitTime), randomSide);
+					}
+			}
 
 			function animate()
 			{
@@ -910,10 +948,11 @@
 				 render();
 				 stats.update();
 			}
+			
 			function render() 
 			{
 				let endAnimation = false;
-				let speed = 0.2;
+				//speed = 0.2;
 				controls.update();
 				
 
